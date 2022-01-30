@@ -1,9 +1,13 @@
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
+const routes = require('./routes');
+// this connects the server.js file to an apollo server
 const {ApolloServer} = require('apollo-server-express')
+// this collects the typedefs and resolvers files from thew schema folder
 const {typeDefs, resolvers} = require('./schemas')
 const {authMiddleware} = require('./utils/auth')
+
 
 const app = express();
 const PORT = process.env.PORT || 3005;
